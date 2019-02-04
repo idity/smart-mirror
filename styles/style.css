@@ -20,19 +20,21 @@ body {
 }
 
 .cell {
-    display: flex;
+	margin-top: 120px;
+	margin-left: 50px;
+    /*display: flex;
     justify-content: center;
-    align-items: center;
-	font-size: 2em;
+    align-items: center;*/
+	font-size: 3em;
 	/*font-weight: bold;*/
 	/*border: 2px solid blue;*/
-	text-align: center;
+	/*text-align: center;*/
 	/*padding: 5px;*/
 }
 
 .digital-clock {
 	font-family: Radioland, serif;
-	font-size: 3em;
+	font-size: 6em;
 	letter-spacing: 0.1em;
 }
 

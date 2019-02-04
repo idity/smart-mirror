@@ -1,12 +1,12 @@
+"use strict";
 // Global variables initialization
 let container = document.getElementById("container");
 
 const url_string = window.location.href;
 const url = new URL(url_string);
-
+const searchParams = new URLSearchParams(url.search)
 let rows = 1;
 let cols = 1;
-
 
 // *** Build the layout ***
 
@@ -18,10 +18,10 @@ function buildLayout() {
 
 
 function getGridDetails() {
-  rows = url.searchParams.get("rows");
+  rows = searchParams.get("rows");
   console.log("number of rows required:", rows);
   
-  cols = url.searchParams.get("cols");
+  cols = searchParams.get("cols");
   console.log("number of cols required:", cols);
 
   if (isNaN(rows) || rows > 4 || rows < 1) {
@@ -70,7 +70,7 @@ function createGrid() {
 
 
 function getCell(cellName) {
-  let cell = url.searchParams.get(cellName);
+  let cell = searchParams.get(cellName);
   console.log(`${cellName} cell is: ${cell}`);
 
   // Cell number validation
@@ -293,8 +293,8 @@ function createClockCanvas2(parent) {
 }
 
 function drawClock2(params) {
-  ctx = params[0];
-  radius = params[1];
+  let ctx = params[0];
+  let radius = params[1];
   
   ctx.arc(0, 0, radius, 0 , 2 * Math.PI);
   //ctx.fillStyle = "red";
@@ -379,20 +379,13 @@ function drawHand2(ctx, pos, length, width) {
 
 // *** Wikipedia ***
 // /wiki/Special:Random
-function loadFeaturedWiki() {
+function loadWiki() {
   // Get the requested cell to show the clock in
-  const cellNum = getCell("wikifeatured");
+  const cellNum = getCell("wiki");
   
   if (cellNum !== 0) {
     let wikiContainer = document.getElementById("div" + cellNum);
     wikiContainer.classList.add("wiki");
-
-    // wikiContainer.style.display = "block";
-    // wikiContainer.style.padding = "5px";
-    // wikiContainer.style.overflow = "hidden";
-    // Add text to the div
-    //let text = document.createTextNode(""); // Create a text node
-    //wikiContainer.appendChild(text);
 
     let wikiTitle = document.createElement("h2");
     wikiContainer.appendChild(wikiTitle);
@@ -418,8 +411,6 @@ function loadFeaturedWiki() {
       
       wikiTitle.appendChild(document.createTextNode(title));
       wikiPage.appendChild(document.createTextNode(extract));
-
-      //wikiContainer.innerHTML = title + " " + extract;
     });
   }
 }
@@ -431,4 +422,4 @@ buildLayout();
 displayDigitalClock();
 displayAnalogClock();
 displayAnalogClock2();
-loadFeaturedWiki();
+loadWiki();
