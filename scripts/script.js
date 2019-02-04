@@ -379,9 +379,9 @@ function drawHand2(ctx, pos, length, width) {
 
 // *** Wikipedia ***
 // /wiki/Special:Random
-function loadFeaturedWiki() {
+function loadWiki() {
   // Get the requested cell to show the clock in
-  const cellNum = getCell("wikifeatured");
+  const cellNum = getCell("wiki");
   
   if (cellNum !== 0) {
     let wikiContainer = document.getElementById("div" + cellNum);
@@ -431,4 +431,4 @@ buildLayout();
 displayDigitalClock();
 displayAnalogClock();
 displayAnalogClock2();
-loadFeaturedWiki();
+loadWiki();
