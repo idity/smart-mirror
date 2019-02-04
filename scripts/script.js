@@ -10,33 +10,29 @@ let cols = 1;
 
 // *** Build the layout ***
 
-function buildLayout() {
+const buildLayout = () => {
   getGridDetails();
   createNewDivs(); 
   createGrid();
 }
 
 
-function getGridDetails() {
+const getGridDetails = () => {
   rows = url.searchParams.get("rows");
-  console.log("number of rows required:", rows);
   
   cols = url.searchParams.get("cols");
-  console.log("number of cols required:", cols);
 
   if (isNaN(rows) || rows > 4 || rows < 1) {
     throw new Error("rows value must be a number between 1 to 4");
-    // console.log("You must define rows with a number between 1 to 4");
   }
 
   if (isNaN(cols) || cols > 4 || cols < 1) {
     throw new Error("Cols value must be a number between 1 to 4");
-    // console.log("You must define cols with a number between 1 to 4");
   }
 }
 
 
-function createNewDivs() {
+const createNewDivs = () => {
   // Create the divs as the user requested
   for (let i=0; i<rows*cols; i++) {
     
@@ -58,34 +54,30 @@ function createNewDivs() {
   }
 }
 
-function createGrid() {
+const createGrid = () => {
   // Create the grid columns
   container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-  console.log("The value of gridTemplateColumns is: ", container.style.gridTemplateColumns);
 
   // Create the grid rows
   container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-  console.log("The value of gridTemplateRows is: ", container.style.gridTemplateRows);
 }
 
 
-function getCell(cellName) {
+const getCell = (cellName) => {
   let cell = url.searchParams.get(cellName);
-  console.log(`${cellName} cell is: ${cell}`);
 
   // Cell number validation
   if (cell===null || cell === NaN || cell < 1 || cell > rows*cols) {
       cell = 0;
   } 
   
-  console.log(`${cellName} final cell is: ${cell}`);
   return cell;
 }
 
 
 // *** Digital Clock settings ***
 
-function displayDigitalClock() {
+const displayDigitalClock = () => {
   // Get the requested cell to show the clock in
   const cellNum = getCell("digclock");
   console.log(`cellNum in displayDigitalClock is: ${cellNum}`);
@@ -102,27 +94,32 @@ function displayDigitalClock() {
 }
 
 
-function startTime(cellToUpdate) {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
+const startTime = (cellToUpdate) => {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  h = checkTime(h);
   m = checkTime(m);
   s = checkTime(s);
   cellToUpdate.innerHTML = h + ":" + m + ":" + s;
-  var t = setTimeout(startTime, 500, cellToUpdate);
+  const t = setTimeout(startTime, 500, cellToUpdate);
 }
 
 
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+const checkTime = (i) => {
+  // add zero in front of numbers < 10
+  if (i < 10) {
+    i = "0" + i;
+  }
+  
   return i;
 }
 
 
 // *** Analog Clock settings ***
 
-function displayAnalogClock() {
+const displayAnalogClock = () => {
   // Get the requested cell to show the clock in
   const cellNum = getCell("anclock");
   
@@ -140,14 +137,10 @@ function displayAnalogClock() {
   }
 }
 
-function createClockCanvas(parent) {
+const createClockCanvas = (parent) => {
   // Create the div
   let canvas = document.createElement("canvas");
   canvas.setAttribute("id", "clock-canvas");
-
-  // Add text to the div
-  // let text = document.createTextNode(`This is div #${i+1}`);      // Create a text node
-  // item.appendChild(text);
 
   canvas.width = parent.offsetHeight;
   canvas.height = parent.offsetHeight;
@@ -164,7 +157,7 @@ function createClockCanvas(parent) {
   setInterval(drawClock, 1000, [ctx, radius]);
 }
 
-function drawClock(params) {
+const drawClock = (params) => {
   ctx = params[0];
   radius = params[1];
   
@@ -177,7 +170,7 @@ function drawClock(params) {
   drawTime(ctx, radius);
 }
 
-function drawFace(ctx, radius) {
+const drawFace = (ctx, radius) => {
   var grad;
 
   ctx.beginPath();
@@ -200,7 +193,7 @@ function drawFace(ctx, radius) {
 }
 
 
-function drawNumbers(ctx, radius) {
+const drawNumbers = (ctx, radius) => {
   var ang;
   var num;
   ctx.font = "bold " + radius * 0.15 + "px arial";
@@ -218,7 +211,7 @@ function drawNumbers(ctx, radius) {
   }
 }
 
-function drawTime(ctx, radius){
+const drawTime = (ctx, radius) => {
   var now = new Date();
   var hour = now.getHours();
   var minute = now.getMinutes();
@@ -235,7 +228,7 @@ function drawTime(ctx, radius){
   drawHand(ctx, second, radius*0.9, radius*0.02);
 }
 
-function drawHand(ctx, pos, length, width) {
+const drawHand = (ctx, pos, length, width) => {
   ctx.beginPath();
   ctx.lineWidth = width;
   ctx.lineCap = "round";
@@ -248,32 +241,23 @@ function drawHand(ctx, pos, length, width) {
 
 // *** 2 ***
 
-function displayAnalogClock2() {
+const displayAnalogClock2 = () => {
   // Get the requested cell to show the clock in
   const cellNum = getCell("anclock2");
   
   if (cellNum !== 0) {
+    // Set the div of the clock
     let analogClockParent = document.getElementById("div" + cellNum);
-
-    // Add analog clock style
-    //analogClockParent.classList.add("analog-clock");
 
     // Create the clock
     createClockCanvas2(analogClockParent);
-
-    // Start the clock
-    //startTime(digitalClockElm);
   }
 }
 
-function createClockCanvas2(parent) {
+const createClockCanvas2 = (parent) => {
   // Create the div
   let canvas = document.createElement("canvas");
   canvas.setAttribute("id", "clock-canvas2");
-
-  // Add text to the div
-  // let text = document.createTextNode(`This is div #${i+1}`);      // Create a text node
-  // item.appendChild(text);
 
   // Adjust the canvas size to the size of its parent div
   canvas.width = parent.offsetHeight;
@@ -292,12 +276,11 @@ function createClockCanvas2(parent) {
   setInterval(drawClock2, 1000, [ctx, radius]);
 }
 
-function drawClock2(params) {
+const drawClock2 = (params) => {
   ctx = params[0];
   radius = params[1];
   
   ctx.arc(0, 0, radius, 0 , 2 * Math.PI);
-  //ctx.fillStyle = "red";
   ctx.fill();
 
   drawFace2(ctx, radius);
@@ -305,7 +288,7 @@ function drawClock2(params) {
   drawTime2(ctx, radius);
 }
 
-function drawFace2(ctx, radius) {
+const drawFace2 = (ctx, radius) => {
   let grad;
 
   ctx.beginPath();
@@ -314,11 +297,6 @@ function drawFace2(ctx, radius) {
   ctx.fill();
 
   // The border of the clock
-  // grad = ctx.createRadialGradient(0, 0 ,radius * 0.95, 0, 0, radius * 1.05);
-  // grad.addColorStop(0, '#333');
-  // grad.addColorStop(0.5, 'white');
-  // grad.addColorStop(1, '#333');
-  // ctx.strokeStyle = grad;
   ctx.strokeStyle = "white"; // The color of the border of the clock
   ctx.lineWidth = radius*0.05; // The width of the border of the clock
   ctx.stroke();
@@ -329,9 +307,9 @@ function drawFace2(ctx, radius) {
   ctx.fill();
 }
 
-function drawNumbers2(ctx, radius) {
-  var ang;
-  var num;
+const drawNumbers2 = (ctx, radius) => {
+  let ang;
+  let num;
   ctx.font = "bold " + radius * 0.2 + "px Merriweather serif";
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
@@ -348,24 +326,27 @@ function drawNumbers2(ctx, radius) {
   }
 }
 
-function drawTime2(ctx, radius){
-  var now = new Date();
-  var hour = now.getHours();
-  var minute = now.getMinutes();
-  var second = now.getSeconds();
+const drawTime2 = (ctx, radius) => {
+  const now = new Date();
+  let hour = now.getHours();
+  let minute = now.getMinutes();
+  let second = now.getSeconds();
+  
   //hour
   hour = hour%12;
   hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
   drawHand2(ctx, hour, radius*0.5, radius*0.06);
+  
   //minute
   minute = (minute*Math.PI/30)+(second*Math.PI/(30*60));
   drawHand2(ctx, minute, radius*0.8, radius*0.06);
+  
   // second
   second = (second*Math.PI/30);
   drawHand2(ctx, second, radius*0.8, radius*0.02);
 }
 
-function drawHand2(ctx, pos, length, width) {
+const drawHand2 = (ctx, pos, length, width) => {
   ctx.beginPath();
   ctx.lineWidth = width;
   ctx.lineCap = "round";
@@ -379,25 +360,21 @@ function drawHand2(ctx, pos, length, width) {
 
 // *** Wikipedia ***
 // /wiki/Special:Random
-function loadWiki() {
+const loadWiki = () => {
   // Get the requested cell to show the clock in
   const cellNum = getCell("wiki");
   
   if (cellNum !== 0) {
+    // Set the wiki div
     let wikiContainer = document.getElementById("div" + cellNum);
     wikiContainer.classList.add("wiki");
 
-    // wikiContainer.style.display = "block";
-    // wikiContainer.style.padding = "5px";
-    // wikiContainer.style.overflow = "hidden";
-    // Add text to the div
-    //let text = document.createTextNode(""); // Create a text node
-    //wikiContainer.appendChild(text);
-
+    // Set the title of the wiki article
     let wikiTitle = document.createElement("h2");
     wikiContainer.appendChild(wikiTitle);
     wikiTitle.appendChild(document.createTextNode(""));
 
+    // Set the content of the wiki article
     let wikiPage = document.createElement("p");
     wikiContainer.appendChild(wikiPage);
 
@@ -418,8 +395,6 @@ function loadWiki() {
       
       wikiTitle.appendChild(document.createTextNode(title));
       wikiPage.appendChild(document.createTextNode(extract));
-
-      //wikiContainer.innerHTML = title + " " + extract;
     });
   }
 }
