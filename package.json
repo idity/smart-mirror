@@ -1,0 +1,19 @@
+{
+  "name": "smart_mirror",
+  "version": "1.0.0",
+  "description": "This is a website for making your mirror a SMART mirror.\r In order to use it, you should attach a simple tablet to a mirror. Then, open this one-page website on your tablet's browser and give it arguments in the url. You should define your browser to fill the screen entirely and define the screen to stay turned on all the time.\r This website creates a grid on the browser's window with a transperant border. Each cell of the grid can contain one element. You can leave cells empty if you wish. You can decide which elements you want to show in which cell.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idity/smart-mirror.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idity/smart-mirror/issues"
+  },
+  "homepage": "https://github.com/idity/smart-mirror#readme"
+}

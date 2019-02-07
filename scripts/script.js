@@ -50,7 +50,7 @@ const createNewDivs = () => {
     // Add the div to the container div
     container.appendChild(item);
 
-    console.log("div" + (i+1) + " created");
+    // console.log("div" + (i+1) + " created");
   }
 }
 
@@ -80,7 +80,6 @@ const getCell = (cellName) => {
 const displayDigitalClock = () => {
   // Get the requested cell to show the clock in
   const cellNum = getCell("digclock");
-  console.log(`cellNum in displayDigitalClock is: ${cellNum}`);
 
   if (cellNum !== 0) {
     let digitalClockElm = document.getElementById("div" + cellNum);
@@ -124,16 +123,11 @@ const displayAnalogClock = () => {
   const cellNum = getCell("anclock");
   
   if (cellNum !== 0) {
+    // Set the div of the clock
     let analogClockParent = document.getElementById("div" + cellNum);
-
-    // Add analog clock style
-    analogClockParent.classList.add("analog-clock");
 
     // Create the clock
     createClockCanvas(analogClockParent);
-
-    // Start the clock
-    //startTime(digitalClockElm);
   }
 }
 
@@ -141,123 +135,6 @@ const createClockCanvas = (parent) => {
   // Create the div
   let canvas = document.createElement("canvas");
   canvas.setAttribute("id", "clock-canvas");
-
-  canvas.width = parent.offsetHeight;
-  canvas.height = parent.offsetHeight;
-
-  // Add the div to the container div
-  parent.appendChild(canvas);
-
-  var ctx = canvas.getContext("2d");
-  var radius = canvas.height / 2;
-  ctx.translate(radius, radius);
-  radius = radius * 0.90;
-
-  // Draw the clock
-  setInterval(drawClock, 1000, [ctx, radius]);
-}
-
-const drawClock = (params) => {
-  ctx = params[0];
-  radius = params[1];
-  
-  ctx.arc(0, 0, radius, 0 , 2 * Math.PI);
-  ctx.fillStyle = "white";
-  ctx.fill();
-
-  drawFace(ctx, radius);
-  drawNumbers(ctx, radius);
-  drawTime(ctx, radius);
-}
-
-const drawFace = (ctx, radius) => {
-  var grad;
-
-  ctx.beginPath();
-  ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-  ctx.fillStyle = 'white';
-  ctx.fill();
-
-  grad = ctx.createRadialGradient(0, 0 ,radius * 0.95, 0, 0, radius * 1.05);
-  grad.addColorStop(0, '#333');
-  grad.addColorStop(0.5, 'white');
-  grad.addColorStop(1, '#333');
-  ctx.strokeStyle = grad;
-  ctx.lineWidth = radius*0.1;
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
-  ctx.fillStyle = '#333';
-  ctx.fill();
-}
-
-
-const drawNumbers = (ctx, radius) => {
-  var ang;
-  var num;
-  ctx.font = "bold " + radius * 0.15 + "px arial";
-  ctx.textBaseline = "middle";
-  ctx.textAlign = "center";
-  for(num = 1; num < 13; num++){
-    ang = num * Math.PI / 6;
-    ctx.rotate(ang);
-    ctx.translate(0, -radius * 0.85);
-    ctx.rotate(-ang);
-    ctx.fillText(num.toString(), 0, 0);
-    ctx.rotate(ang);
-    ctx.translate(0, radius * 0.85);
-    ctx.rotate(-ang);
-  }
-}
-
-const drawTime = (ctx, radius) => {
-  var now = new Date();
-  var hour = now.getHours();
-  var minute = now.getMinutes();
-  var second = now.getSeconds();
-  //hour
-  hour = hour%12;
-  hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
-  drawHand(ctx, hour, radius*0.5, radius*0.07);
-  //minute
-  minute = (minute*Math.PI/30)+(second*Math.PI/(30*60));
-  drawHand(ctx, minute, radius*0.8, radius*0.07);
-  // second
-  second = (second*Math.PI/30);
-  drawHand(ctx, second, radius*0.9, radius*0.02);
-}
-
-const drawHand = (ctx, pos, length, width) => {
-  ctx.beginPath();
-  ctx.lineWidth = width;
-  ctx.lineCap = "round";
-  ctx.moveTo(0,0);
-  ctx.rotate(pos);
-  ctx.lineTo(0, -length);
-  ctx.stroke();
-  ctx.rotate(-pos);
-}
-
-// *** 2 ***
-
-const displayAnalogClock2 = () => {
-  // Get the requested cell to show the clock in
-  const cellNum = getCell("anclock2");
-  
-  if (cellNum !== 0) {
-    // Set the div of the clock
-    let analogClockParent = document.getElementById("div" + cellNum);
-
-    // Create the clock
-    createClockCanvas2(analogClockParent);
-  }
-}
-
-const createClockCanvas2 = (parent) => {
-  // Create the div
-  let canvas = document.createElement("canvas");
-  canvas.setAttribute("id", "clock-canvas2");
 
   // Adjust the canvas size to the size of its parent div
   canvas.width = parent.offsetHeight;
@@ -273,22 +150,22 @@ const createClockCanvas2 = (parent) => {
   radius = radius * 0.90;
 
   // Draw the clock
-  setInterval(drawClock2, 1000, [ctx, radius]);
+  setInterval(drawClock, 1000, [ctx, radius]);
 }
 
-const drawClock2 = (params) => {
+const drawClock = (params) => {
   ctx = params[0];
   radius = params[1];
   
   ctx.arc(0, 0, radius, 0 , 2 * Math.PI);
   ctx.fill();
 
-  drawFace2(ctx, radius);
-  drawNumbers2(ctx, radius);
-  drawTime2(ctx, radius);
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
 }
 
-const drawFace2 = (ctx, radius) => {
+const drawFace = (ctx, radius) => {
   let grad;
 
   ctx.beginPath();
@@ -307,7 +184,7 @@ const drawFace2 = (ctx, radius) => {
   ctx.fill();
 }
 
-const drawNumbers2 = (ctx, radius) => {
+const drawNumbers = (ctx, radius) => {
   let ang;
   let num;
   ctx.font = "bold " + radius * 0.2 + "px Merriweather serif";
@@ -326,7 +203,7 @@ const drawNumbers2 = (ctx, radius) => {
   }
 }
 
-const drawTime2 = (ctx, radius) => {
+const drawTime = (ctx, radius) => {
   const now = new Date();
   let hour = now.getHours();
   let minute = now.getMinutes();
@@ -335,18 +212,18 @@ const drawTime2 = (ctx, radius) => {
   //hour
   hour = hour%12;
   hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
-  drawHand2(ctx, hour, radius*0.5, radius*0.06);
+  drawHand(ctx, hour, radius*0.5, radius*0.06);
   
   //minute
   minute = (minute*Math.PI/30)+(second*Math.PI/(30*60));
-  drawHand2(ctx, minute, radius*0.8, radius*0.06);
+  drawHand(ctx, minute, radius*0.8, radius*0.06);
   
   // second
   second = (second*Math.PI/30);
-  drawHand2(ctx, second, radius*0.8, radius*0.02);
+  drawHand(ctx, second, radius*0.8, radius*0.02);
 }
 
-const drawHand2 = (ctx, pos, length, width) => {
+const drawHand = (ctx, pos, length, width) => {
   ctx.beginPath();
   ctx.lineWidth = width;
   ctx.lineCap = "round";
@@ -400,10 +277,136 @@ const loadWiki = () => {
 }
 
 
+// *** Weather ***
+
+const loadWeather = () => {
+
+  // Get the requested cell to show the clock in
+  const cellNum = getCell("weather");
+
+  if (cellNum !== 0) {
+    let weatherContainer = document.getElementById("div" + cellNum);
+
+    // Start loading the weather container
+    getWeather(weatherContainer);
+  }
+}
+
+const farenheitToCelsius = (k) => {
+  return Math.round((k - 32) * 0.5556 );
+}
+
+const humidityPercentage = (h) => {
+  return Math.round(h * 100);
+}
+
+const degreesToDirection = (degrees) => {
+    const range = 360/16;
+    const low = 360 - range/2;
+    const high = (low + range) % 360;
+    const angles = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
+    for (i in angles) {
+
+        if(degrees>= low && degrees < high)
+            return angles[i];
+
+        low = (low + range) % 360;
+        high = (high + range) % 360;
+    }
+}
+
+const knotsToKilometres = (knot) => {
+  return Math.round( knot * 1.852);
+}
+
+const weatherImages = {
+  "clear-day": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Sun_icon.svg/252px-Sun_icon.svg.png",
+  "clear-night": "http://www.clker.com/cliparts/f/S/2/p/7/u/gold-matte-moon.svg",
+  "rain": "https://cdn3.iconfinder.com/data/icons/weather-16/256/Rainy_Day-512.png",
+  "snow": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Nuvola_weather_snow.svg/1000px-Nuvola_weather_snow.svg.png",
+  "sleet": "http://www.clker.com/cliparts/f/6/7/4/1206565674431593790Anonymous_simple_weather_symbols_10.svg.hi.png",
+  "wind": "http://www.haotu.net/up/4233/128/216-wind.png",
+  "fog": "http://www.iconninja.com/files/81/344/943/fog-cloud-hiding-the-sun-weather-interface-symbol-icon.svg",
+  "cloudy": "http://camera.thietbianninh.com/images/icon-2.png",
+  "partly-cloudy-day": "http://meteo.cw/images_www/weather_icons1/weather_icon_03.png",
+  "partly-cloudy-night": "http://icon-park.com/imagefiles/simple_weather_icons_cloudy_night.png",
+  "hail": "http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Hail-icon.png",
+  "thunderstorm": "http://findicons.com/files/icons/2613/android_weather_extended/480/thunderstorms.png",
+  "tornado": "http://hddfhm.com/images/clipart-of-a-tornado-11.png"
+}
+
+// Get the location and then continue to find the weather forecast accordingly
+const getWeather = (weatherContainer) => {
+  // debugger;
+  if(navigator.geolocation){
+    try {
+      navigator.geolocation.getCurrentPosition(function(position){
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        showWeather(lat, long, weatherContainer);
+      })
+    } catch (err) {
+      console.log("getWeather function", err);
+      weatherContainer.appendChild(document.createTextNode(err));
+    }
+  } else {
+      window.alert("Could not get location");
+  }
+}
+ 
+const showWeather = (lat, long, weatherContainer) => {
+  // Build the url to get the forecast
+  const urlProxy = "https://cors-anywhere.herokuapp.com/";
+  const urlRemoteSite = `https://api.darksky.net/forecast/f672ff13193bfcc40427a678ebfdbc71/${lat},${long}` + 
+                    `?format=jsonp`; // +`&callback=displayWeather`;
+  const urlToLoad = urlProxy + urlRemoteSite;
+
+  fetch(urlToLoad)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(body) {
+      // Get the json weather object
+      let jsonObj = JSON.parse(body);
+      jsonObj = jsonObj.currently;
+      let objTemprature = jsonObj.temperature;
+      let objSummary = jsonObj.summary;
+      let objHumidity = jsonObj.humidity;
+      
+      fillWeatherContainer(jsonObj, weatherContainer);
+    });
+}
+
+const fillWeatherContainer = (jsonObj, weatherContainer) => {
+  // Set the summary icon
+  let summaryIcon = document.createElement("img");
+  weatherContainer.appendChild(summaryIcon);
+  summaryIcon.src = weatherImages[jsonObj.icon];
+  summaryIcon.classList.add("weather-img");
+
+  // Set forecast details div
+  let forecastDetailsDiv = document.createElement("div");
+  weatherContainer.appendChild(forecastDetailsDiv);
+  weatherContainer.classList.add("weather-cell");
+
+  // Set the temperatures
+  let temperatures = document.createElement("h2");
+  forecastDetailsDiv.appendChild(temperatures);
+  let temperaturesText = farenheitToCelsius(jsonObj.temperature) + " C" + "  /  " + 
+                          jsonObj.temperature + " F";
+  temperatures.appendChild(document.createTextNode(temperaturesText));
+
+  // Set the summary of the weather forecast
+  let summary = document.createElement("h2");
+  forecastDetailsDiv.appendChild(summary);
+  summary.appendChild(document.createTextNode(jsonObj.summary));
+}
+
+
 // *** Main ***
 
 buildLayout();
 displayDigitalClock();
 displayAnalogClock();
-displayAnalogClock2();
 loadWiki();
+loadWeather();
