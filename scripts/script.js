@@ -267,11 +267,22 @@ const loadWiki = () => {
       let jsonObj = JSON.parse(body);
       jsonObj = jsonObj.query.pages;
       let objWiki = jsonObj[Object.keys(jsonObj)[0]];
-      let title = objWiki.title;
-      let extract = objWiki.extract;
       
+      // Get the article's title
+      let title = objWiki.title;
+      
+      // Get the article's text
+      let extract = objWiki.extract;
+      let extractArray = extract.split(".");
+      let shortExtract = extractArray[0] + ".";
+
+      if (extractArray[1] !== "" && extractArray[1] !== undefined){
+        shortExtract += extractArray[1] + ".";
+      }
+
+      // Show the title and the text
       wikiTitle.appendChild(document.createTextNode(title));
-      wikiPage.appendChild(document.createTextNode(extract));
+      wikiPage.appendChild(document.createTextNode(shortExtract));
     });
   }
 }
