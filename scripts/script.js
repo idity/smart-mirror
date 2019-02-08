@@ -1,5 +1,6 @@
 // Global variables initialization
 let container = document.getElementById("container");
+let analogClockParent;
 
 const url_string = window.location.href;
 const url = new URL(url_string);
@@ -124,7 +125,7 @@ const displayAnalogClock = () => {
   
   if (cellNum !== 0) {
     // Set the div of the clock
-    let analogClockParent = document.getElementById("div" + cellNum);
+    analogClockParent = document.getElementById("div" + cellNum);
 
     // Create the clock
     createClockCanvas(analogClockParent);
@@ -414,10 +415,28 @@ const fillWeatherContainer = (jsonObj, weatherContainer) => {
 }
 
 
+
 // *** Main ***
 
-buildLayout();
-displayDigitalClock();
-displayAnalogClock();
-loadWiki();
-loadWeather();
+const main = () => {
+  buildLayout();
+  displayDigitalClock();
+  displayAnalogClock();
+  loadWiki();
+  loadWeather();
+}
+
+main();
+
+
+
+// *** Browser resize ***
+
+window.addEventListener("resize", function(event) {
+  // container.innerHTML = "";
+  // main();
+  if (analogClockParent !== null){
+    analogClockParent.innerHTML = "";
+    displayAnalogClock();
+  }
+});
