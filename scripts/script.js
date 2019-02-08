@@ -333,7 +333,7 @@ const knotsToKilometres = (knot) => {
 
 const weatherImages = {
   "clear-day": "images/sunny.png",
-  "clear-night": "images/clear-night.png",
+  "clear-night": "images/clear_night.png",
   "rain": "images/light_rain.png",
   "snow": "images/snow4.png",
   "sleet": "images/sleet.png",
@@ -435,7 +435,7 @@ main();
 window.addEventListener("resize", function(event) {
   // container.innerHTML = "";
   // main();
-  if (analogClockParent !== null){
+  if (analogClockParent !== undefined){
     analogClockParent.innerHTML = "";
     displayAnalogClock();
   }
