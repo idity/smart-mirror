@@ -63,6 +63,7 @@ const createGrid = () => {
 // *** Load the cells ***
 
 const loadCells = () => {
+
   for (let i=1; i<=rows*cols; i++) {
     const value = getCellValue(i);
 
@@ -96,6 +97,7 @@ const getCellValue = (cellNum) => {
 
 const displayDigitalClock = (cellNum) => {
   let digitalClockElm = document.getElementById("div" + cellNum);
+  digitalClockElm.innerHTML = "";
 
   // Add digital clock style
   digitalClockElm.classList.add("digital-clock");
@@ -261,6 +263,7 @@ window.addEventListener("resize", function(event) {
 const loadWiki = (cellNum) => {
   // Set the wiki div
   let wikiContainer = document.getElementById("div" + cellNum);
+  wikiContainer.innerHTML = "";
   wikiContainer.classList.add("wiki");
 
   // Set the title of the wiki article
@@ -308,6 +311,7 @@ const loadWiki = (cellNum) => {
 
 const loadWeather = (cellNum) => {
   let weatherContainer = document.getElementById("div" + cellNum);
+  weatherContainer.innerHTML = "";
 
   // Start loading the weather container
   getWeather(weatherContainer);
@@ -444,6 +448,9 @@ const getImgSize = (alpha, container) => {
 const main = () => {
   buildLayout();
   loadCells();
+
+  // Refresh the page every hour
+  setInterval(loadCells, 1000 * 60 * 60);
 }
 
 main();
