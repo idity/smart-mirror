@@ -1,6 +1,7 @@
 // Global variables initialization
 let container = document.getElementById("container");
-let analogClockParent;
+
+const analogClockCellsArray = [];
 
 const url_string = window.location.href;
 const url = new URL(url_string);
@@ -44,10 +45,6 @@ const createNewDivs = () => {
     // Add a style
     item.classList.add("cell");
 
-    // Add text to the div
-    // let text = document.createTextNode(`This is div #${i+1}`);      // Create a text node
-    // item.appendChild(text);
-
     // Add the div to the container div
     container.appendChild(item);
 
@@ -63,34 +60,48 @@ const createGrid = () => {
   container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
 }
 
+// *** Load the cells ***
 
-const getCell = (cellName) => {
-  let cell = url.searchParams.get(cellName);
+const loadCells = () => {
+  for (let i=1; i<=rows*cols; i++) {
+    const value = getCellValue(i);
 
-  // Cell number validation
-  if (cell===null || cell === NaN || cell < 1 || cell > rows*cols) {
-      cell = 0;
-  } 
-  
-  return cell;
+    switch (value) {
+      case ("digclock"):
+        displayDigitalClock(i);
+        break;
+      case ("anclock"):
+        analogClockCellsArray.push(i);
+        displayAnalogClock(i);
+        break;
+      case ("wiki"):
+        loadWiki(i);
+        break;
+      case ("weather"):
+        loadWeather(i);
+        break;
+      default:
+        // There's no value for this cell, do nothing
+    }
+  }
+}
+
+
+const getCellValue = (cellNum) => {
+  return url.searchParams.get(cellNum);
 }
 
 
 // *** Digital Clock settings ***
 
-const displayDigitalClock = () => {
-  // Get the requested cell to show the clock in
-  const cellNum = getCell("digclock");
+const displayDigitalClock = (cellNum) => {
+  let digitalClockElm = document.getElementById("div" + cellNum);
 
-  if (cellNum !== 0) {
-    let digitalClockElm = document.getElementById("div" + cellNum);
+  // Add digital clock style
+  digitalClockElm.classList.add("digital-clock");
 
-    // Add digital clock style
-    digitalClockElm.classList.add("digital-clock");
-
-    // Start the clock
-    startTime(digitalClockElm);
-  }
+  // Start the clock
+  startTime(digitalClockElm); 
 }
 
 
@@ -119,17 +130,15 @@ const checkTime = (i) => {
 
 // *** Analog Clock settings ***
 
-const displayAnalogClock = () => {
-  // Get the requested cell to show the clock in
-  const cellNum = getCell("anclock");
-  
-  if (cellNum !== 0) {
-    // Set the div of the clock
-    analogClockParent = document.getElementById("div" + cellNum);
+const displayAnalogClock = (cellNum) => {
+  // Set the div of the clock
+  let analogClockParent = document.getElementById("div" + cellNum);
 
-    // Create the clock
-    createClockCanvas(analogClockParent);
-  }
+  // Initialize the div before drwing in it
+  analogClockParent.innerHTML = "";
+
+  // Create the clock
+  createClockCanvas(analogClockParent);
 }
 
 const createClockCanvas = (parent) => {
@@ -236,73 +245,72 @@ const drawHand = (ctx, pos, length, width) => {
   ctx.rotate(-pos);
 }
 
+// Analog clock - Browser resize
+
+window.addEventListener("resize", function(event) {
+  // Runs over the array of analog clock cells to draw them again
+  for (value of analogClockCellsArray) {
+    displayAnalogClock(value);
+  }
+});
+
+
 
 // *** Wikipedia ***
 // /wiki/Special:Random
-const loadWiki = () => {
-  // Get the requested cell to show the clock in
-  const cellNum = getCell("wiki");
-  
-  if (cellNum !== 0) {
-    // Set the wiki div
-    let wikiContainer = document.getElementById("div" + cellNum);
-    wikiContainer.classList.add("wiki");
+const loadWiki = (cellNum) => {
+  // Set the wiki div
+  let wikiContainer = document.getElementById("div" + cellNum);
+  wikiContainer.classList.add("wiki");
 
-    // Set the title of the wiki article
-    let wikiTitle = document.createElement("h2");
-    wikiContainer.appendChild(wikiTitle);
-    wikiTitle.appendChild(document.createTextNode(""));
+  // Set the title of the wiki article
+  let wikiTitle = document.createElement("h2");
+  wikiContainer.appendChild(wikiTitle);
+  wikiTitle.appendChild(document.createTextNode(""));
 
-    // Set the content of the wiki article
-    let wikiPage = document.createElement("p");
-    wikiContainer.appendChild(wikiPage);
+  // Set the content of the wiki article
+  let wikiPage = document.createElement("p");
+  wikiContainer.appendChild(wikiPage);
 
-    let response;
-    let urlToLoad = "https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&exintro&explaintext&redirects=1&generator=random&grnnamespace=0&prop=extracts";
-    //let urlToLoad = "https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&generator=random&grnnamespace=0&prop=revisions&rvprop=content&rvsection=0&rvslots=main";
+  let response;
+  let urlToLoad = "https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&exintro&explaintext&redirects=1&generator=random&grnnamespace=0&prop=extracts";
+  //let urlToLoad = "https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&generator=random&grnnamespace=0&prop=revisions&rvprop=content&rvsection=0&rvslots=main";
 
-    fetch(urlToLoad)
-    .then(function(response) {
-      return response.text();
-    })
-    .then(function(body) {
-      let jsonObj = JSON.parse(body);
-      jsonObj = jsonObj.query.pages;
-      let objWiki = jsonObj[Object.keys(jsonObj)[0]];
-      
-      // Get the article's title
-      let title = objWiki.title;
-      
-      // Get the article's text
-      let extract = objWiki.extract;
-      let extractArray = extract.split(".");
-      let shortExtract = extractArray[0] + ".";
+  fetch(urlToLoad)
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(body) {
+    let jsonObj = JSON.parse(body);
+    jsonObj = jsonObj.query.pages;
+    let objWiki = jsonObj[Object.keys(jsonObj)[0]];
+    
+    // Get the article's title
+    let title = objWiki.title;
+    
+    // Get the article's text
+    let extract = objWiki.extract;
+    let extractArray = extract.split(".");
+    let shortExtract = extractArray[0] + ".";
 
-      if (extractArray[1] !== "" && extractArray[1] !== undefined){
-        shortExtract += extractArray[1] + ".";
-      }
+    if (extractArray[1] !== "" && extractArray[1] !== undefined){
+      shortExtract += extractArray[1] + ".";
+    }
 
-      // Show the title and the text
-      wikiTitle.appendChild(document.createTextNode(title));
-      wikiPage.appendChild(document.createTextNode(shortExtract));
-    });
-  }
+    // Show the title and the text
+    wikiTitle.appendChild(document.createTextNode(title));
+    wikiPage.appendChild(document.createTextNode(shortExtract));
+  });
 }
 
 
 // *** Weather ***
 
-const loadWeather = () => {
+const loadWeather = (cellNum) => {
+  let weatherContainer = document.getElementById("div" + cellNum);
 
-  // Get the requested cell to show the clock in
-  const cellNum = getCell("weather");
-
-  if (cellNum !== 0) {
-    let weatherContainer = document.getElementById("div" + cellNum);
-
-    // Start loading the weather container
-    getWeather(weatherContainer);
-  }
+  // Start loading the weather container
+  getWeather(weatherContainer);
 }
 
 const farenheitToCelsius = (k) => {
@@ -435,23 +443,7 @@ const getImgSize = (alpha, container) => {
 
 const main = () => {
   buildLayout();
-  displayDigitalClock();
-  displayAnalogClock();
-  loadWiki();
-  loadWeather();
+  loadCells();
 }
 
 main();
-
-
-
-// *** Browser resize ***
-
-window.addEventListener("resize", function(event) {
-  // container.innerHTML = "";
-  // main();
-  if (analogClockParent !== undefined){
-    analogClockParent.innerHTML = "";
-    displayAnalogClock();
-  }
-});
