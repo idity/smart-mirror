@@ -393,9 +393,16 @@ const fillWeatherContainer = (jsonObj, weatherContainer) => {
   // Set the summary icon
   let summaryIcon = document.createElement("img");
   weatherContainer.appendChild(summaryIcon);
+  
   summaryIcon.src = weatherImages[jsonObj.icon];
-  summaryIcon.classList.add("weather-img");
+  //summaryIcon.classList.add("weather-img");
 
+  // Wait for the image to load and then set its size
+  summaryIcon.addEventListener("load", function() { 
+    let size = getImgSize(weatherContainer);
+    summaryIcon.style.width = size + 'px';
+    summaryIcon.style.height = size + 'px';
+  });
   // Set forecast details div
   let forecastDetailsDiv = document.createElement("div");
   weatherContainer.appendChild(forecastDetailsDiv);
@@ -414,6 +421,13 @@ const fillWeatherContainer = (jsonObj, weatherContainer) => {
   summary.appendChild(document.createTextNode(jsonObj.summary));
 }
 
+const getImgSize = (container) => {
+  if (container.offsetWidth > container.offsetHeight) {
+    return 0.6*container.offsetHeight;
+  } else {
+    return 0.6*container.offsetWidth;
+  }
+}
 
 
 // *** Main ***
