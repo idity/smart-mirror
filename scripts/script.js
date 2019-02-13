@@ -136,10 +136,11 @@ const createClockCanvas = (parent) => {
   // Create the div
   let canvas = document.createElement("canvas");
   canvas.setAttribute("id", "clock-canvas");
-
+  
   // Adjust the canvas size to the size of its parent div
-  canvas.width = parent.offsetHeight;
-  canvas.height = parent.offsetHeight;
+  let size = getImgSize(1, parent);
+  canvas.width = size;
+  canvas.height = size;
 
   // Add the clock div to the parent div
   parent.appendChild(canvas);
@@ -399,7 +400,7 @@ const fillWeatherContainer = (jsonObj, weatherContainer) => {
 
   // Wait for the image to load and then set its size
   summaryIcon.addEventListener("load", function() { 
-    let size = getImgSize(weatherContainer);
+    let size = getImgSize(0.6, weatherContainer);
     summaryIcon.style.width = size + 'px';
     summaryIcon.style.height = size + 'px';
   });
@@ -421,11 +422,11 @@ const fillWeatherContainer = (jsonObj, weatherContainer) => {
   summary.appendChild(document.createTextNode(jsonObj.summary));
 }
 
-const getImgSize = (container) => {
+const getImgSize = (alpha, container) => {
   if (container.offsetWidth > container.offsetHeight) {
-    return 0.6*container.offsetHeight;
+    return alpha*container.offsetHeight;
   } else {
-    return 0.6*container.offsetWidth;
+    return alpha*container.offsetWidth;
   }
 }
 
