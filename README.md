@@ -2,7 +2,7 @@
 
 This is a website for making your mirror a SMART mirror.
 In order to use it, you should attach a simple tablet to a mirror. Then, open this one-page website on your tablet's browser and give it arguments in the url. You should define your browser to fill the screen entirely and define the screen to stay turned on all the time.
-This website creates a grid on the browser's window with a transperant border. Each cell of the grid can contain one element. You can leave cells empty if you wish. You can decide which elements you want to show in which cell. 
+This website creates a grid on the browser's window with a transperant border. Each cell of the grid can contain one element. You can leave cells empty if you wish. You can decide which elements you want to show in which cells. 
 
 ## The elements that are available are: 
 - Digital clock
@@ -16,17 +16,19 @@ This website creates a grid on the browser's window with a transperant border. E
 
 **cols** - Specify a number between 1 to 4 which will be the number of coloums of the grid
 
-**digclock** - Specify a number between 1 to the rows*cols that you've entered above to select the digital clock's cell. A number outside of those boundries will specify that the digital clock should not be displayed
+**A number** - Specify a number between 1 to rowsXcols and give it a value of one of the following: 
 
-**anclock** - Specify a number between 1 to the rows*cols that you've entered above to select the analog clock's cell. A number outside of those boundries will specify that the analog clock should not be displayed
+**_digclock_** - A digital clock will be displayed in the specified cell. 
 
-**wiki** - Specify a number between 1 to the rows*cols that you've entered above to select the wikipedia's random article cell. A number outside of those boundries will specify that no article should be displayed
+**_anclock_** - An analog clock will be displayed in the specified cell. 
 
-**weather** - Specify a number between 1 to the rows*cols that you've entered above to select the weather forecast's cell. A number outside of those boundries will specify that no weather forecast should be displayed. In order for this function to work, the site should run using a secure connection (https)
+**_wiki_** - A Wikipedia random article will be displayed in the specified cell.
 
-## A url example:
-https://idity.github.io/smart-mirror/?rows=2&cols=2&digclock=1&anclock2=2&wiki=3&weather=4
+**_weather_** - A weather forecast will be displayed in the specified cell. In order for this function to work, the site should run using a secure connection (https).
+
+## URL for example:
+https://idity.github.io/smart-mirror/?rows=2&cols=2&1=digclock&2=anclock&3=wiki&4=weather
 
 
-**You are welcome to add more features to this website.**
+**_You are welcome to add more features to this website._**
 
