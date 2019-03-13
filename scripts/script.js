@@ -1,7 +1,7 @@
-import loadWiki from './components/wiki.js';
-import displayDigitalClock from './components/digital-clock.js';
-import { displayAnalogClock, resizeAnalogClock, analogClockCellsArray } from './components/analog-clock.js';
-import { loadWeather, loadWeatherImage, resizeWeatherImage } from './components/weather.js';
+import loadWiki from 'components/wiki.js';
+import displayDigitalClock from 'components/digital-clock.js';
+import { displayAnalogClock, resizeAnalogClock, analogClockCellsArray } from 'omponents/analog-clock.js';
+import { loadWeather, loadWeatherImage, resizeWeatherImage } from 'components/weather.js';
 
 // *** Build the layout ***
 
