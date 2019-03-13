@@ -1,4 +1,4 @@
-import { getImgSize } from '/scripts/globals.js';
+import { getImgSize } from '../globals.js';
 
 // *** Analog Clock settings ***
 export const analogClockCellsArray = [];
