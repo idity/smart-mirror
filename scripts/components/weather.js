@@ -1,5 +1,5 @@
-import { getImgSize } from '../globals.js';
-import WEATHER_IMAGES from '../CONSTS.js';
+import { getImgSize } from './scripts/globals.js';
+import WEATHER_IMAGES from './scripts/CONSTS.js';
 
 // *** Weather ***
 export const weatherImageInfoArray = [];
