@@ -5,7 +5,7 @@ const WEATHER_IMAGES = {
   "snow": "images/snow4.png",
   "sleet": "images/sleet.png",
   "wind": "images/wind.png",
-  "fog": "images/fog.svg",
+  "fog": "images/fog.png",
   "cloudy": "images/cloudy5.png",
   "partly-cloudy-day": "images/cloudy2.png",
   "partly-cloudy-night": "images/cloudy2_night.png",
