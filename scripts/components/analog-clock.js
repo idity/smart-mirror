@@ -37,7 +37,7 @@ const createClockCanvas = (parent) => {
   setInterval(drawClock, 1000, [ctx, radius]);
 }
 
-const drawClock = (params) => {
+let drawClockTest = (params) => {
   let ctx = params[0];
   let radius = params[1];
   
