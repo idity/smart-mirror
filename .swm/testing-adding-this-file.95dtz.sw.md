@@ -18,7 +18,7 @@ gfgfnfgngf
 
 <br/>
 
-`const`<swm-token data-swm-token=":scripts/components/analog-clock.js:40:0:0:`const drawClock = (params) =&gt; {`"/>
+`let`<swm-token data-swm-token=":scripts/components/analog-clock.js:40:0:0:`let drawClockTest = (params) =&gt; {`"/>
 
 <br/>
 
