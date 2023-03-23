@@ -13,7 +13,7 @@ gfgfnfgngf
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 scripts/components/analog-clock.js
 ```javascript
-4      export const analogClockCellsArray = [];
+4      export const analogClockCellsArray = [null];
 ```
 
 <br/>
