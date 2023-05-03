@@ -15,7 +15,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 scripts/CONSTS.js
 ```javascript
-1      const WEATHER_IMAGES = {
+1      const WEATHER_IMAGES_TEST = {
 2        "clear-day": "images/sunny.png",
 3        "clear-night": "images/clear_night.png",
 4        "rain": "images/light_rain.png",
