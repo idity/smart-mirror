@@ -11,7 +11,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <br/>
 
-[[sym-text:WEATHER_IMAGES_TEST(1GdW4Y)]]
+`WEATHER_IMAGES_TEST`<swm-token data-swm-token=":scripts/CONSTS.js:1:2:2:`const WEATHER_IMAGES_TEST = {`"/>
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 scripts/CONSTS.js
 ```javascript
