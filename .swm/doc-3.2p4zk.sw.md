@@ -9,7 +9,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <br/>
 
-`bnm`<swm-token data-swm-token=":scripts/components/digital-clock.js:15:2:2:`const bnm = (cellToUpdate) =&gt; {`"/>
+[[sym-text:bnm123(global:Z2l0aHViJTNBJTNBc21hcnQtbWlycm9yJTNBJTNBSWRpdFllZ2VyU3dpbW0=-scripts/components/digital-clock.js-15-2)]]
 
 `WEATHER_IMAGES_TEST`<swm-token data-swm-token=":scripts/CONSTS.js:1:2:2:`const WEATHER_IMAGES_TEST = {`"/>
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->

@@ -12,7 +12,7 @@ const displayDigitalClock = (cellNum) => {
 }
 
 
-const bnm = (cellToUpdate) => {
+const bnm123 = (cellToUpdate) => {
   const today = new Date();
   let h = today.getHours();
   let m = today.getMinutes();
