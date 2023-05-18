@@ -46,11 +46,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <br/>
 
-<div align="center"><img src="https://firebasestorage.googleapis.com/v0/b/swimm-dev-content/o/repositories%2FZ2l0aHViJTNBJTNBc21hcnQtbWlycm9yJTNBJTNBSWRpdFllZ2VyU3dpbW0%3D%2F69108922-75cc-4f6f-8345-7ea9b540bf29.png?alt=media&token=b0f1b9d4-72cf-43b0-97bf-9527f19cb4b3" style="width:'50%'"/></div>
+[[sym-mention:(e60fe056-825c-455f-ac27-8dc2e3db85a7|Z5vhe3)Idit Yeger]]
 
 <br/>
 
-[[sym-mention:(e60fe056-825c-455f-ac27-8dc2e3db85a7|Z5vhe3)Idit Yeger]]
+<div align="center"><img src="https://firebasestorage.googleapis.com/v0/b/swimm-dev-content/o/repositories%2FZ2l0aHViJTNBJTNBc21hcnQtbWlycm9yJTNBJTNBSWRpdFllZ2VyU3dpbW0%3D%2F69108922-75cc-4f6f-8345-7ea9b540bf29.png?alt=media&token=b0f1b9d4-72cf-43b0-97bf-9527f19cb4b3" style="width:'50%'"/></div>
 
 <br/>
 
@@ -66,6 +66,20 @@ Crash --> [\*]
 
 ```
 <!--MCONTENT {content: "stateDiagram-v2<br/>\n\\[\\*\\] \\-\\-\\> Still<br/>\nStill \\-\\-\\> \\[\\*\\]<br/>\nStill \\-\\-\\> Moving<br/>\nMoving \\-\\-\\> Still<br/>\nMoving \\-\\-\\> Crash<br/>\nCrash \\-\\-\\> \\[\\*\\]<br/>\n<br/>"} --->
+
+<br/>
+
+[<--VIDEO-->](https://www.youtube.com/watch?v=-utH17XunI8)
+
+<br/>
+
+asdfadsf
+
+asdfadsf
+
+sdafasdf
+
+<br/>
 
 <br/>
 
