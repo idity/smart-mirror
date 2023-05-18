@@ -13,21 +13,7 @@ Luctus accumsan tortor posuere ac ut consequat semper. Sapien faucibus et molest
 
 <br/>
 
-
-<!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
-### 📄 scripts/globals.js
-```javascript
-4        if (container.offsetWidth123 > container.offsetHeight) {
-5          return alpha*container.offsetHeight;
-6        } else {
-7          return alpha*container.offsetWidth;
-8        }
-9      }
-```
-
-<br/>
-
-
+Adding a comment
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 scripts/script.js
 ```javascript
@@ -48,7 +34,7 @@ Luctus accumsan tortor posuere ac ut consequat semper. Sapien faucibus et molest
 
 <br/>
 
-
+This code snippet is the head section of an HTML document and includes a title for the page and a link to a stylesheet for styling the page. The `title` tag sets the title of the page that appears in the browser tab. The `link` tag references an external CSS file located in the `styles` folder and applies its styles to the HTML elements in the document.
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 index.html
 ```html
