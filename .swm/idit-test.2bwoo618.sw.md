@@ -13,13 +13,11 @@ Luctus accumsan tortor posuere ac ut consequat semper. Sapien faucibus et molest
 
 <br/>
 
-<br/>
-
 
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 scripts/globals.js
 ```javascript
-4        if (container.offsetWidth > container.offsetHeight) {
+4        if (container.offsetWidth123 > container.offsetHeight) {
 5          return alpha*container.offsetHeight;
 6        } else {
 7          return alpha*container.offsetWidth;
@@ -65,8 +63,6 @@ Luctus accumsan tortor posuere ac ut consequat semper. Sapien faucibus et molest
 
 <br/>
 
-[[sym-link:(f12068e7-0df5-4485-a179-900f8c28e0cc)Doc 2]]
-
 [[sym-mention:(e60fe056-825c-455f-ac27-8dc2e3db85a7|Z5vhe3)Idit Yeger]]
 
 <br/>
@@ -81,13 +77,12 @@ Moving --> Still
 Moving --> Crash
 Crash --> [\*]
 
-
 ```
-<!--MCONTENT {content: "stateDiagram-v2<br/>\n\\[\\*\\] \\-\\-\\> Still<br/>\nStill \\-\\-\\> \\[\\*\\]<br/>\nStill \\-\\-\\> Moving<br/>\nMoving \\-\\-\\> Still<br/>\nMoving \\-\\-\\> Crash<br/>\nCrash \\-\\-\\> \\[\\*\\]<br/>\n\n<br/>"} --->
+<!--MCONTENT {content: "stateDiagram-v2<br/>\n\\[\\*\\] \\-\\-\\> Still<br/>\nStill \\-\\-\\> \\[\\*\\]<br/>\nStill \\-\\-\\> Moving<br/>\nMoving \\-\\-\\> Still<br/>\nMoving \\-\\-\\> Crash<br/>\nCrash \\-\\-\\> \\[\\*\\]<br/>\n<br/>"} --->
 
 <br/>
 
-<div align="center"><img src="https://media1.giphy.com/media/7Yuutd7WkNREOEHgmy/giphy.gif?cid=d56c4a8bjnt86b9clxa56xuvttxhk7ysxz8uexbo7by8xadk&ep=v1_gifs_trending&rid=giphy.gif&ct=g" style="width:'50%'"/></div>
+<div align="center"><img src="https://firebasestorage.googleapis.com/v0/b/swimm-dev-content/o/repositories%2FZ2l0aHViJTNBJTNBc21hcnQtbWlycm9yJTNBJTNBSWRpdFllZ2VyU3dpbW0%3D%2F10cec1ff-b0ad-4d9a-ba55-413d444ec33d.png?alt=media&token=3404b926-d74d-4183-9c1f-42b1912adda9" style="width:'50%'"/></div>
 
 <br/>
 
