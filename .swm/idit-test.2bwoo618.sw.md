@@ -11,6 +11,10 @@ In vitae turpis massa sed elementum tempus. Nulla aliquet enim tortor at auctor.
 
 Luctus accumsan tortor posuere ac ut consequat semper. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Turpis cursus in hac habitasse platea dictumst. Iaculis at erat pellentesque adipiscing commodo elit at. Lectus arcu bibendum at varius vel pharetra vel. Nisi quis eleifend quam adipiscing vitae. Lacus viverra vitae congue eu consequat ac felis. Sapien et ligula ullamcorper malesuada. In massa tempor nec feugiat nisl pretium fusce id velit. Massa id neque aliquam vestibulum.
 
+`📄 scripts/globals.js`
+
+`knotsToKilometres`<swm-token data-swm-token=":scripts/components/weather.js:38:2:2:`const knotsToKilometres = (knot) =&gt; {`"/>
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Magna sit amet purus gravida quis blandit turpis cursus in. Viverra vitae congue eu consequat ac felis donec et odio. Morbi enim nunc faucibus a pellentesque sit amet porttitor eget. Tristique senectus et netus et. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Id eu nisl nunc mi. Senectus et netus et malesuada fames ac turpis. Et ligula ullamcorper malesuada proin libero nunc consequat. Tellus at urna condimentum mattis pellentesque id. Tortor pretium viverra suspendisse potenti nullam ac.
 
 <br/>
