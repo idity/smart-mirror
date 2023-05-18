@@ -26,12 +26,6 @@ This code defines a function `getGridDetails` that takes in a `url`, number of `
 16         throw new Error("rows value must be a number between 1 to 4");
 17       }
 18     
-19       if (isNaN(cols) || cols > 4 || cols < 1) {
-20         throw new Error("Cols value must be a number between 1 to 4");
-21       }
-22     
-23       createNewDivs(rows, cols);
-24     }
 ```
 
 <br/>
@@ -68,17 +62,6 @@ Crash --> [\*]
 
 ```
 <!--MCONTENT {content: "stateDiagram-v2<br/>\n\\[\\*\\] \\-\\-\\> Still<br/>\nStill \\-\\-\\> \\[\\*\\]<br/>\nStill \\-\\-\\> Moving<br/>\nMoving \\-\\-\\> Still<br/>\nMoving \\-\\-\\> Crash<br/>\nCrash \\-\\-\\> \\[\\*\\]<br/>\n<br/>"} --->
-
-<br/>
-
-`rel`<swm-token data-swm-token=":index.html:5:4:4:`	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles/style.css&quot;&gt;`"/>
-<!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
-### 📄 index.html
-```html
-3      <head>
-4      	<title>Smart Mirror</title>
-5      	<link rel="stylesheet" type="text/css" href="styles/style.css">
-```
 
 <br/>
 
