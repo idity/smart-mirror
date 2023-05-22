@@ -2,14 +2,14 @@
 id: 2p4zk
 title: Doc 3
 file_version: 1.1.2
-app_version: 1.7.2
+app_version: 1.9.0
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dignissim convallis aenean et tortor at risus viverra adipiscing. Dictum non consectetur a erat nam at lectus urna duis. Mi eget mauris pharetra et ultrices neque. Viverra justo nec ultrices dui sapien eget mi. Erat imperdiet sed euismod nisi porta lorem mollis aliquam.
 
 <br/>
 
-[[sym-text:bnm123(global:Z2l0aHViJTNBJTNBc21hcnQtbWlycm9yJTNBJTNBSWRpdFllZ2VyU3dpbW0=-scripts/components/digital-clock.js-15-2)]]
+`bnm123`
 
 `WEATHER_IMAGES_TEST`<swm-token data-swm-token=":scripts/CONSTS.js:1:2:2:`const WEATHER_IMAGES_TEST = {`"/>
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
@@ -31,6 +31,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 14       "tornado": "images/tornado2.png"
 15     }
 ```
+
+<br/>
+
+`📄 scripts/script.js`
+
+[[sym-link:(f337bbdb-340a-4fea-b166-61d87f299c36)Doc 2]]
 
 <br/>
 
