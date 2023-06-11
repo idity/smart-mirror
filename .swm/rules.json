@@ -1,0 +1,73 @@
+{
+    "rules": {
+        "ad4bc912-b236-49da-b90d-73d4af5e6fb3": {
+            "name": "Draw numbers",
+            "rule": {
+                "type": "regex",
+                "regex": "`/\\bdrawNumbers\\([a-zA-Z]+\\)/`"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "pqf5kobj",
+                    "message": "This is a test of the AI"
+                }
+            }
+        },
+        "976ac95f-7596-40bb-8f1c-e75c8afb24b9": {
+            "name": "Wiki rule",
+            "rule": {
+                "type": "regex",
+                "regex": "wiki"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "b2z05626"
+                }
+            }
+        },
+        "7c7d7bc9-1566-4218-9d8c-db5f205a46a8": {
+            "name": "Invalid Regex",
+            "rule": {
+                "type": "regex",
+                "regex": "`updateDiv\\((.+)\\)` - This regex will match the `updateDiv` function and capture the `div` element as a group. This is useful for developers who are not familiar with the `updateDiv` function and need guidance on how to use it to update a specific `div`"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "b2z05626"
+                }
+            }
+        },
+        "e6abeee4-df86-4c0b-96ba-d222bc5755a0": {
+            "name": "Invalid RegEx 2",
+            "rule": {
+                "type": "regex",
+                "regex": "`/digitalClockElm/` - This regex will match any instances of the `digitalClockElm`"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "x8397v9m"
+                }
+            }
+        },
+        "13e923b2-fbaa-4f6a-a502-548e3de201f8": {
+            "name": "Today",
+            "rule": {
+                "type": "regex",
+                "regex": "today"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "8hxk4xxt",
+                    "message": "Some message"
+                }
+            }
+        }
+    },
+    "view_order": [
+        "ad4bc912-b236-49da-b90d-73d4af5e6fb3",
+        "976ac95f-7596-40bb-8f1c-e75c8afb24b9",
+        "7c7d7bc9-1566-4218-9d8c-db5f205a46a8",
+        "e6abeee4-df86-4c0b-96ba-d222bc5755a0",
+        "13e923b2-fbaa-4f6a-a502-548e3de201f8"
+    ]
+}
