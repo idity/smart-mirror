@@ -1,7 +1,7 @@
 ---
 title: Amex new doc from user Idit
 ---
-I'm editing this doc with user Idit.
+I'm editing this doc with user Idit.123456
 
 I'll add some snippet here:
 
