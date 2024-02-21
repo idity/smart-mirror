@@ -5,14 +5,14 @@ I'm editing this doc with user Idit.
 
 I'll add some snippet here:
 
-<SwmSnippet path="scripts/script.js" line="16">
+<SwmSnippet path="/scripts/script.js" line="20">
 
 ---
 
 &nbsp;
 
 ```
-    throw new Error("rows value must be a number between 1 to 4");
+    throw new Error("Cols value must be a number between 1 to 4");
 ```
 
 ---
