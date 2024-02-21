@@ -1,6 +1,8 @@
 ---
 title: Amex new doc from user Idit
 ---
+I'm editing this doc with user Idit.
+
 I'll add some snippet here:
 
 <SwmSnippet path="/scripts/script.js" line="13">
