@@ -13,7 +13,8 @@ Something is written here.
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/idity/smart-mirror/issues"
+    "url": "https://github.com/idity/smart-mirror/issues",
+    "url": "https://github.com/idity/smart-mirror/issues2"
   },
   "homepage": "https://github.com/idity/smart-mirror#readme"
 }
