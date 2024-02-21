@@ -13,7 +13,7 @@ const buildLayout = (url, rows, cols) => {
 const getGridDetails = (url, rows, cols) => {
 
   if (isNaN(rows) || rows > 4 || rows < 1) {
-    throw new Error("rows value must be a number between 1 to 4");
+    // Do nothing
   }
 
   if (isNaN(cols) || cols > 4 || cols < 1) {
