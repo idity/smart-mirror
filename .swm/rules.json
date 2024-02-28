@@ -25,18 +25,6 @@
                 }
             }
         },
-        "7c7d7bc9-1566-4218-9d8c-db5f205a46a8": {
-            "name": "Invalid Regex",
-            "rule": {
-                "type": "regex",
-                "regex": "`updateDiv\\((.+)\\)` - This regex will match the `updateDiv` function and capture the `div` element as a group. This is useful for developers who are not familiar with the `updateDiv` function and need guidance on how to use it to update a specific `div`"
-            },
-            "actions": {
-                "ide": {
-                    "doc_id": "b2z05626"
-                }
-            }
-        },
         "e6abeee4-df86-4c0b-96ba-d222bc5755a0": {
             "name": "Invalid RegEx 2",
             "rule": {
@@ -49,16 +37,133 @@
                 }
             }
         },
-        "13e923b2-fbaa-4f6a-a502-548e3de201f8": {
-            "name": "Today",
+        "0a366928-15e2-4d44-a4e5-cacb96bed99f": {
+            "name": "1",
             "rule": {
                 "type": "regex",
-                "regex": "today"
+                "regex": "1"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "dfbs69vb",
+                    "message": "1"
+                }
+            }
+        },
+        "ea371505-59e3-45c1-863a-0c47cdecbb53": {
+            "name": "7",
+            "rule": {
+                "type": "regex",
+                "regex": "7"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "tkba7hrm",
+                    "message": "7"
+                }
+            }
+        },
+        "76217fd7-0f07-4ddc-8876-4122e9d36152": {
+            "name": "8",
+            "rule": {
+                "type": "regex",
+                "regex": "8"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "lyh69n5c",
+                    "message": "8"
+                }
+            }
+        },
+        "e9566498-0ed3-4099-aa50-e81cbcfbd3a6": {
+            "name": "9",
+            "rule": {
+                "type": "regex",
+                "regex": "9"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "96cedzkf",
+                    "message": "9"
+                }
+            }
+        },
+        "0802c577-2544-43bb-a34a-3263cf1c4c68": {
+            "name": "10",
+            "rule": {
+                "type": "regex",
+                "regex": "10"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "x8397v9m",
+                    "message": "10"
+                }
+            }
+        },
+        "95ad3971-e354-4567-bcb9-5258460ad057": {
+            "name": "11",
+            "rule": {
+                "type": "regex",
+                "regex": "11"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "lwc6q3yb",
+                    "message": "11"
+                }
+            }
+        },
+        "d218679d-b4a9-44bd-99fb-d4c14eaad278": {
+            "name": "12",
+            "rule": {
+                "type": "regex",
+                "regex": "12"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "lwc6q3yb",
+                    "message": "12"
+                }
+            }
+        },
+        "10e9096e-fe5a-49b4-b69b-97b79a7fca1b": {
+            "name": "13",
+            "rule": {
+                "type": "regex",
+                "regex": "13"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "dfbs69vb",
+                    "message": "13"
+                }
+            }
+        },
+        "67b884b5-9a5c-45eb-8d98-d184d325dbe0": {
+            "name": "14",
+            "rule": {
+                "type": "regex",
+                "regex": "14"
             },
             "actions": {
                 "ide": {
                     "doc_id": "8hxk4xxt",
-                    "message": "Some message"
+                    "message": "14"
+                }
+            }
+        },
+        "cc8cc832-e618-4d3b-a910-1935c8f22dd0": {
+            "name": "15",
+            "rule": {
+                "type": "regex",
+                "regex": "15"
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "1tyti",
+                    "message": "15"
                 }
             }
         }
@@ -66,8 +171,16 @@
     "view_order": [
         "ad4bc912-b236-49da-b90d-73d4af5e6fb3",
         "976ac95f-7596-40bb-8f1c-e75c8afb24b9",
-        "7c7d7bc9-1566-4218-9d8c-db5f205a46a8",
         "e6abeee4-df86-4c0b-96ba-d222bc5755a0",
-        "13e923b2-fbaa-4f6a-a502-548e3de201f8"
+        "0a366928-15e2-4d44-a4e5-cacb96bed99f",
+        "ea371505-59e3-45c1-863a-0c47cdecbb53",
+        "76217fd7-0f07-4ddc-8876-4122e9d36152",
+        "e9566498-0ed3-4099-aa50-e81cbcfbd3a6",
+        "0802c577-2544-43bb-a34a-3263cf1c4c68",
+        "95ad3971-e354-4567-bcb9-5258460ad057",
+        "d218679d-b4a9-44bd-99fb-d4c14eaad278",
+        "10e9096e-fe5a-49b4-b69b-97b79a7fca1b",
+        "67b884b5-9a5c-45eb-8d98-d184d325dbe0",
+        "cc8cc832-e618-4d3b-a910-1935c8f22dd0"
     ]
 }
